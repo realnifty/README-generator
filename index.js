@@ -37,28 +37,53 @@ const questions = () => {
         },
         {
             type: 'checkbox',
-            name: 'licenses',
+            name: 'license',
             message: 'Please choose a license for your project.',
-            choices: 
-            [
-                'GNU AGPLv3',
-                'GNU GPLv3',
-                'GNU LGPLv3',
-                'Mozilla Public License 2.0',
-                'Apache License 2.0',
-                'MIT License',
-                'Boost Software License 1.0',
-                'The Unlicense'
-            ]
+            choices:
+                [
+                    'GNU AGPLv3',
+                    'GNU GPLv3',
+                    'GNU LGPLv3',
+                    'Mozilla Public License 2.0',
+                    'Apache License 2.0',
+                    'MIT License',
+                    'Boost Software License 1.0',
+                    'The Unlicense'
+                ]
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Please enter your GitHub username.'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please enter your email address.'
         }
     ]);
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'File written successfully!'
+            });
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+
+}
 
 // Function call to initialize app
 init();
