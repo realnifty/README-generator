@@ -36,7 +36,7 @@ const questions = () => {
             message: 'Please enter testing instructions for your project.'
         },
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'license',
             message: 'Please choose a license for your project.',
             choices:
@@ -65,9 +65,9 @@ const questions = () => {
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', data, err => {
+        fs.writeFile('./dist/README.md', data, (err) => {
             if (err) {
                 reject(err);
                 return;
@@ -82,8 +82,21 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-
-}
+    questions()
+    .then (promptData => {
+        console.log(promptData);
+        return promptData;
+    })
+    .then (data => {
+        return generateMarkdown(data);
+    })
+    .then (markdown => {
+        return writeToFile(markdown);
+    })
+    .catch (err => {
+        console.log(err);
+    });
+};
 
 // Function call to initialize app
 init();
