@@ -116,7 +116,7 @@ ${data.test}
 
 Have questions? Reach me at the following sources!
 
-* GitHub: [${data.github}](https://github.com/${data.github}),
+* GitHub: [${data.github}](https://github.com/${data.github})
 * E-mail: ${data.email}
 `;
 }
