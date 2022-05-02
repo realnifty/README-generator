@@ -4,7 +4,7 @@ function renderLicenseBadge(license) {
   if (!license) {
     return '';
   }
-  else if (license === 'GNU AGPLv3'){
+  else if (license === 'GNU AGPLv3') {
     return `![License: ${license}](https://img.shields.io/badge/license-GNU%20AGPLv3-orange)`;
   }
   else if (license === 'GNU GPLv3') {
@@ -69,17 +69,55 @@ function renderLicenseSection(license) {
     return '';
   }
   else if (license) {
-    return `
-    ## License
-
-    Licensed under the [${license}](${renderLicenseLink(license)})
-    `;
+    return `## License
+    
+Licensed under the ${renderLicenseLink(license)}`;
   }
 };
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+
+${renderLicenseBadge(data.license)}
+  
+## Description
+
+${data.description}
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+
+${data.installation}
+
+## Usage
+
+${data.usage}
+
+${renderLicenseSection(data.license)}
+
+## Contributing
+
+${data.contribution}
+
+## Tests
+
+${data.test}
+
+## Questions
+
+Have questions? Reach me at the following sources!
+
+* GitHub: [${data.github}](https://github.com/${data.github}),
+* E-mail: ${data.email}
 `;
 }
 
