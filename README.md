@@ -1,10 +1,12 @@
-# 09-README-generator
+# README Generator
 
 ![License: MIT License](https://img.shields.io/badge/license-MIT-orange)
   
 ## Description
 
-This project is the week 9 module challenge. It is a command line node.js application that takes in user input in order to create a professional readme file. 
+A node.js application that takes in user input in the command line that generates a professional README file for a project. The user is prompted to enter the project details and when complete, the README file is generated.
+
+![app screenshot](./images/app_ss.png)
 
 ## Table of Contents
 
@@ -17,14 +19,14 @@ This project is the week 9 module challenge. It is a command line node.js applic
 
 ## Installation
 ```
-- install node.js
-- run npm install inquirer 
-- run node index 
+- clone this repository to your local machine
+- run npm install for required dependencies
+- run node index.js to initialize the application
 ```
 
 ## Usage
 
-Follow installation instructions to generate README file. Once generated, the written file can copied into the root directory of your project.
+This application requires Node.js to run. Run ```node index.js``` to initialize the application. Then, enter the prompted information for the project in the command line. The README markdown file will then be generated in the ```/dist``` directory and can be copied into the root directory of your project.
 
 ## License
     
